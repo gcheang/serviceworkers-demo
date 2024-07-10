@@ -34,8 +34,8 @@ export class UpdateCheckService {
       try {
         const updateFound = await this.updates.checkForUpdate();
         updateFound
-          ? this.sendToast('A new version is available.')
-          : this.sendErrorToast('Already on the latest version.');
+          ? this.sendErrorToast('A new version is available.')
+          : this.sendToast('Already on the latest version.');
         this.checked.next(true);
       } catch (err) {
         this.sendToast('Failed to check for updates: ' + err);
