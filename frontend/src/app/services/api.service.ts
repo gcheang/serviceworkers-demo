@@ -4,7 +4,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class ApiService {
-  private url = 'api';
+  // private url = 'api';
+  private url = 'http://localhost:5150/api';
 
   hasConnection = new BehaviorSubject<boolean>(true);
   hasConnection$: Observable<boolean> = this.hasConnection.asObservable();

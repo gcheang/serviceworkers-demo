@@ -68,12 +68,6 @@ export class DataService {
           });
       },
       error: (err) => {
-        // console.error(err);
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Error!',
-          detail: err.body.error,
-        });
         // if fail, prompt to try again or get cached data
         this.prompt();
       },

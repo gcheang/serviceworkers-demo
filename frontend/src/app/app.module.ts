@@ -4,11 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
-import { InMemoryDataService } from './services/in-memory-data.service';
+// import { InMemoryDataService } from './services/in-memory-data.service';
 import { ApiService } from './services/api.service';
 import { AppComponent } from './app.component';
 
@@ -25,9 +25,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      delay: 100,
-    }),
+    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+    //   delay: 100,
+    // }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
