@@ -54,7 +54,7 @@ export class DataService {
             this.messageService.add({
               severity: 'success',
               summary: 'Success!',
-              detail: 'Cached data.',
+              detail: 'Successfully cached new data.',
             });
 
             this.clearOldCaches();
@@ -84,7 +84,7 @@ export class DataService {
     this.confirmationService.confirm({
       message: 'Fetch failed. Would you like to retry?',
       header: 'Confirmation',
-      icon: 'pi pi-exclamation-triangle',
+      icon: 'pi pi-exclamation-circle',
       acceptIcon: 'none',
       acceptLabel: 'Retry',
       rejectIcon: 'none',
