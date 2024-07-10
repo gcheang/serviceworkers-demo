@@ -1,0 +1,81 @@
+<div class="flex place-content-center" style="min-height: 100dvh">
+  <div
+    class="container flex flex-col gap-2 place-content-center place-items-center bg-neutral-200 text-center"
+  >
+    <p class="text-gray-500">
+      {{ updateTimer }} seconds elapsed since last version check<br />
+      Last version check status:
+      <span
+        [ngClass]="{
+          'text-red-500': lastUpdate === false,
+          'text-green-500': lastUpdate,
+        }"
+        >{{ lastUpdate ?? "null" }}</span
+      >
+    </p>
+    <p class="text-gray-500">
+      {{ connectionTimer }} seconds elapsed since last connection check<br />
+      Last connection check status:
+      <span
+        [ngClass]="{
+          'text-red-500': lastConnection === false,
+          'text-green-500': lastConnection,
+        }"
+        >{{ lastConnection ?? "null" }}</span
+      >
+    </p>
+    <p class="text-gray-500">
+      Using cache?
+      <span
+        [ngClass]="{
+          'text-red-500': usingCache === false,
+          'text-green-500': usingCache,
+        }"
+        >{{ usingCache ?? "null" }}</span
+      >
+    </p>
+    <p class="text-gray-500">
+      Cache age? {{ cacheAge ? getFormatedDateTime(cacheAge) : "null" }}
+    </p>
+    <div class="flex gap-8 place-items-center">
+      <p-button
+        *ngIf="!hasInit"
+        label="Start"
+        (click)="initTimer()"
+        severity="secondary"
+      ></p-button>
+
+      <ng-container *ngIf="hasInit">
+        <p-button label="Get data" (click)="getData()"></p-button>
+
+        <p-selectButton
+          [options]="[
+            { label: 'Allow connection', value: true },
+            { label: 'No connection', value: false },
+          ]"
+          [(ngModel)]="hasConnection"
+          optionLabel="label"
+          optionValue="value"
+          [allowEmpty]="false"
+          (onChange)="toggleConnection()"
+        />
+      </ng-container>
+    </div>
+
+    <div
+      class="grid gap-2 bg-neutral-50 grid-cols-6 p-2 rounded w-5/6 min-h-60 shadow-inner"
+    >
+      <div
+        *ngFor="let hero of data"
+        class="bg-yellow-200 rounded p-2 shadow place-content-center"
+      >
+        id: {{ hero.heroId }}
+        <br />
+        name: {{ hero.heroName }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-toast></p-toast>
+<p-confirmDialog />
