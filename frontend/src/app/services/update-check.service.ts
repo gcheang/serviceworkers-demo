@@ -6,7 +6,7 @@ import { first } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class UpdateCheckService {
-  checked = new BehaviorSubject<boolean | null>(null);
+  private checked = new BehaviorSubject<boolean | null>(null);
   checked$: Observable<boolean | null> = this.checked.asObservable();
 
   constructor(

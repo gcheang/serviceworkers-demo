@@ -7,7 +7,7 @@ export class ApiService {
   // private url = 'api';
   private url = 'http://localhost:5150/api';
 
-  hasConnection = new BehaviorSubject<boolean>(true);
+  private hasConnection = new BehaviorSubject<boolean>(true);
   hasConnection$: Observable<boolean> = this.hasConnection.asObservable();
 
   updateHasConnection(bool: boolean) {

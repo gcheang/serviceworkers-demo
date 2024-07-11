@@ -7,7 +7,7 @@ import { ApiService } from './api.service';
   providedIn: 'root',
 })
 export class ConnectionCheckService {
-  checked = new BehaviorSubject<boolean | null>(null);
+  private checked = new BehaviorSubject<boolean | null>(null);
   checked$: Observable<boolean | null> = this.checked.asObservable();
 
   constructor(
